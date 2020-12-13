@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="images/nan.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megachess</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="container" id="resp">
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Opponent</th>
+                <th>Result</th>
+                <th>My Score</th>
+                <th>Opponent Score</th>
+            </tr>
+        </thead>
+        <tbody id="score_board">
+            
+        </tbody>
+    </table>
+    <script>
+        const socket = io();
+        var resp = document.getElementById('resp');
+        var pieces = {
+            'p': 'peon_negra',
+            'r': 'torre_negra',
+            'h': 'caballo_negra',
+            'b': 'alfil_negra',
+            'k': 'rey_negra',
+            'q': 'reina_negra',
+            'P': 'peon_blanco',
+            'R': 'torre_blanco',
+            'H': 'caballo_blanco',
+            'B': 'alfil_blanco',
+            'K': 'rey_blanco',
+            'Q': 'reina_blanco'
+        };
+
+        socket.on('board', function (data) {
+            if (!document.getElementById(data.board_id)){
+                resp.innerHTML += `<div class="board" id="${data.board_id}">Waiting for room ...</div>`
+            }
+            
+            var html = `
+                <p>
+                    oponent: ${data.opponent},
+                    current set: ${data.current_set}
+                </p>
+            `;
+            for (const row of data.board) {
+                html += '<div>';
+                for (const column of row) {
+                    var piece_class = '';
+                    if (column != '' || column != ' ') {
+                        piece_class = pieces[column];
+                    }
+                    html += `<div class="${piece_class}"></div>`;
+                }
+                html += '</div>';
+            }
+
+            document.getElementById(data.board_id).innerHTML = html;
+        });
+
+        socket.on('gameover', function(data) {
+            document.getElementById(data.board_id).outerHTML = "";
+            document.getElementById('score_board').innerHTML += `
+                <tr>
+                    <td>${data.opponent}</td>
+                    <td>${data.result}</td>
+                    <td>${data.my_score}</td>
+                    <td>${data.opponent_score}</td>
+                </tr>
+            `;
+        });
+    </script>
+
+</body>
+
+</html>

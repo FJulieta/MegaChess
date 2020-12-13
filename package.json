@@ -1,0 +1,17 @@
+{
+  "name": "megachess",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mocha": "^8.2.1",
+    "socket.io": "^3.0.3",
+    "ws": "^7.4.0"
+  }
+}

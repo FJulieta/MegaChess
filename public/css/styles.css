@@ -1,0 +1,119 @@
+body{background: #b3670b;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #b3670b, #b3670b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #b3670b, #b3670b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+.container {
+  display: flex;
+}
+
+.board {
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.board > div {
+  display: flex;
+  flex-direction: row;
+}
+
+.board > div > div {
+  width: 45px;
+  height: 45px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.board > div:nth-child(odd) > div:nth-child(odd),
+.board > div:nth-child(even) > div:nth-child(even) {
+  background-color: #fece9c;
+  border: 5px solid #fece9c;
+}
+
+.board > div:nth-child(odd) > div:nth-child(even),
+.board > div:nth-child(even) > div:nth-child(odd) {
+  background-color: #d18b47;
+  border: 5px solid #d18b47;
+}
+
+.torre_blanco {
+  background: url("/images/torre_blanco.png");
+}
+
+.caballo_blanco {
+  background: url("/images/caballo_blanco.png");
+}
+
+.alfil_blanco {
+  background: url("/images/alfil_blanco.png");
+}
+
+.rey_blanco {
+  background: url("/images/rey_blanco.png");
+}
+
+.reina_blanco {
+  background: url("/images/reina_blanco.png");
+}
+
+.peon_blanco {
+  background: url("/images/peon_blanco.png");
+}
+.torre_negra {
+  background: url("/images/torre_negra.png");
+}
+
+.caballo_negra {
+  background: url("/images/caballo_negra.png");
+}
+
+.alfil_negra {
+  background: url("/images/alfil_negra.png");
+}
+
+.rey_negra {
+  background: url("/images/rey_negra.png");
+}
+
+.reina_negra {
+  background: url("/images/reina_negra.png");
+}
+
+.peon_negra {
+  background: url("/images/peon_negra.png");
+}
+
+table {
+  border-collapse: collapse;
+  margin: 30px 0px;
+
+  
+}
+
+table td, table th{
+  color: white;
+  border: 1px solid black;
+  padding: 5px 14px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size:18px;
+  font-weight: bolder;
+}
+table td:hover{
+  color: blue;
+}
+.resp{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  font-size: 18px;
+ color: white;
+
+}
+p{
+  background: rgb(15, 8, 1);
+  color: white;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  font: bolder;
+  font-weight: bolder;
+}

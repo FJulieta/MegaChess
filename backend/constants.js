@@ -1,0 +1,74 @@
+module.exports.SET_TYPE_BLACK = 'black';
+module.exports.SET_TYPE_WHITE = 'white';
+
+const PIECE_BISHOP_WHITE = 'B';
+const PIECE_KING_WHITE = 'K';
+const PIECE_KNIGHT_WHITE = 'H';
+const PIECE_PAWN_WHITE = 'P';
+const PIECE_QUEEN_WHITE = 'Q';
+const PIECE_ROCK_WHITE = 'R';
+
+module.exports.PIECE_BISHOP_WHITE = PIECE_BISHOP_WHITE;
+module.exports.PIECE_KING_WHITE = PIECE_KING_WHITE;
+module.exports.PIECE_KNIGHT_WHITE = PIECE_KNIGHT_WHITE;
+module.exports.PIECE_PAWN_WHITE = PIECE_PAWN_WHITE;
+module.exports.PIECE_QUEEN_WHITE = PIECE_QUEEN_WHITE;
+module.exports.PIECE_ROCK_WHITE = PIECE_ROCK_WHITE;
+
+const PIECE_BISHOP_BLACK = 'b';
+const PIECE_KING_BLACK = 'k';
+const PIECE_KNIGHT_BLACK = 'h';
+const PIECE_PAWN_BLACK = 'p';
+const PIECE_QUEEN_BLACK = 'q';
+const PIECE_ROCK_BLACK = 'r';
+
+module.exports.PIECE_BISHOP_BLACK = PIECE_BISHOP_BLACK;
+module.exports.PIECE_KING_BLACK = PIECE_KING_BLACK;
+module.exports.PIECE_KNIGHT_BLACK = PIECE_KNIGHT_BLACK;
+module.exports.PIECE_PAWN_BLACK = PIECE_PAWN_BLACK;
+module.exports.PIECE_QUEEN_BLACK = PIECE_QUEEN_BLACK;
+module.exports.PIECE_ROCK_BLACK = PIECE_ROCK_BLACK;
+
+const PIECE_BISHOP = 'bishop';
+const PIECE_KING = 'king';
+const PIECE_KNIGHT = 'knight';
+const PIECE_PAWN = 'pawn';
+const PIECE_QUEEN = 'queen';
+const PIECE_ROCK = 'rock';
+
+module.exports.PIECE_BISHOP = PIECE_BISHOP;
+module.exports.PIECE_KING = PIECE_KING;
+module.exports.PIECE_KNIGHT = PIECE_KNIGHT;
+module.exports.PIECE_PAWN = PIECE_PAWN;
+module.exports.PIECE_QUEEN = PIECE_QUEEN;
+module.exports.PIECE_ROCK = PIECE_ROCK;
+
+const MAP_PIECES_CODE_TO_PIECE_NAME = {
+    [PIECE_BISHOP_WHITE]: PIECE_BISHOP, [PIECE_BISHOP_BLACK]: PIECE_BISHOP,
+    [PIECE_KING_WHITE]: PIECE_KING, [PIECE_KING_BLACK]: PIECE_KING,
+    [PIECE_KNIGHT_WHITE]: PIECE_KNIGHT, [PIECE_KNIGHT_BLACK]: PIECE_KNIGHT,
+    [PIECE_PAWN_WHITE]: PIECE_PAWN, [PIECE_PAWN_BLACK]: PIECE_PAWN,
+    [PIECE_QUEEN_WHITE]: PIECE_QUEEN, [PIECE_QUEEN_BLACK]: PIECE_QUEEN,
+    [PIECE_ROCK_WHITE]: PIECE_ROCK, [PIECE_ROCK_BLACK]: PIECE_ROCK,
+};
+
+module.exports.MAP_PIECES_CODE_TO_POINTS = {
+    [PIECE_BISHOP_WHITE]: 40, [PIECE_BISHOP_BLACK]: 40,
+    [PIECE_KING_WHITE]: 100, [PIECE_KING_BLACK]: 100,
+    [PIECE_KNIGHT_WHITE]: 30, [PIECE_KNIGHT_BLACK]: 30,
+    [PIECE_PAWN_WHITE]: 10, [PIECE_PAWN_BLACK]: 10,
+    [PIECE_QUEEN_WHITE]: 5, [PIECE_QUEEN_BLACK]: 5,
+    [PIECE_ROCK_WHITE]: 60, [PIECE_ROCK_BLACK]: 60,
+};
+
+module.exports.MAP_PIECES_CODE_TO_PIECE_NAME = MAP_PIECES_CODE_TO_PIECE_NAME;
+
+module.exports.MAP_PIECES_NAME_TO_PIECE_CODE = (piece_name) => {
+    let filtered = []
+    for(let piece_code in MAP_PIECES_CODE_TO_PIECE_NAME) {
+        if(MAP_PIECES_CODE_TO_PIECE_NAME[piece_code] === piece_name) {
+            filtered.push(piece_code)
+        }
+    }
+    return filtered;
+} 
